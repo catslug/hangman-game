@@ -43,6 +43,7 @@ window.onload = function() {
 		document.getElementById("gempic").classList.remove("crystalseen");
 		document.getElementById("gempic").setAttribute("class", "crystalgem");
 		getNewGem();
+		render();
 	}
 };
 
@@ -93,7 +94,7 @@ function win() {
 		console.log("You win!");
 		wins++;
 		document.getElementById("gempic").setAttribute("class", "crystalseen");
-		getNewGem();
+		// getNewGem();
 	}
 
 	else if (guessesLeft === 0) {
@@ -101,9 +102,7 @@ function win() {
 		console.log("You lose!");
 		hangmanGuess = [];
 		hangmanGuess.push(currentGem);
-		// document.getElementById("guesses").innerHTML = currentGem
-		// push the missing values to the currentGem array. oy vey. 
-		// getNewGem();
+		document.getElementById("gempic").setAttribute("class", "crystalseen");
 	}
 
 	else {
@@ -118,6 +117,7 @@ function getNewGem() {
 	guessTried = [];
 	currentGem = gems[Math.floor(Math.random() * gems.length)];
 	console.log(currentGem.length);
+	document.getElementById("gempic").src = "assets/images/" + currentGem + ".png";
 	for (i = 0; i < currentGem.length; i++) {
 		hangmanGuess.push("_");
 	}
