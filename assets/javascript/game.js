@@ -23,7 +23,6 @@ document.onkeyup = function(event) {
 
 	if (possGuesses.includes(yourChoice) === false) {
     	alert("That's not a letter, silly!");
-    	guessesLeft++; 
     }
 
     guessArray(yourChoice);
@@ -129,10 +128,3 @@ function getNewGem() {
 	console.log(hangmanGuess.length);
 	console.log(currentGem);
 }
-
-
-//win condition determined when all of the values in the array/string have been guessed. hmm.
-//at condition win, increase var wordChoice++
-//problem: pushes letters to the array multiple times, even if already guessed.
-//how do I get it to appear without commas? 
-// create a loop to push _ to array str.length times? ooooh
