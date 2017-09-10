@@ -11,6 +11,12 @@ var guessTried = [];
 
 document.onkeyup = function(event) {
 
+	if (guessesLeft === 0) {
+		alert("Please press 'next' to get a new word!");
+		guessesLeft++;
+		wins--;
+	}
+
     var yourChoice = event.key;
     yourChoice = yourChoice.toLowerCase()
     console.log(yourChoice);
@@ -94,11 +100,9 @@ function win() {
 		console.log("You win!");
 		wins++;
 		document.getElementById("gempic").setAttribute("class", "crystalseen");
-		// getNewGem();
 	}
 
-	else if (guessesLeft === 0) {
-		// document.getElementById("guesses").innerHTML = currentGem;		
+	else if (guessesLeft === 0) {		
 		console.log("You lose!");
 		hangmanGuess = [];
 		hangmanGuess.push(currentGem);
