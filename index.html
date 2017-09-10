@@ -1,0 +1,149 @@
+<!Doctype html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<title>Hangman for Witches' Brew</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Lato" rel="stylesheet">
+	<script type="text/javascript" src="assets/javascript/game.js"></script>
+</head>
+<body>
+
+	<div class="jumbotron" id="blue">
+		<div class="row">
+			<h1 id="gem-title">Crystal Gems</h1>
+		</div>
+
+		<div class="row">
+
+			<div class="col-md-6">
+				<img class="crystalgem img-responsive" id="gempic" src="https://vignette.wikia.nocookie.net/steven-universe/images/1/16/GarnetByKmes.png/revision/latest?cb=20160123075715" height="300"> 
+			</div>
+
+			<div id="text-content" class="col-md-6">
+
+				<div class="row">
+					<button id="start-reset"><span id="game-init">Start</span></button>
+				</div>
+
+				<div class="row" id="stats">
+					<p>Wins: <span id="wins">0</span></p>
+				
+					<p>Guesses left: <span id="guessLeft">5</span></p>
+
+					<p>Your guesses so far: <span id="humanGuess"></span></p>
+				</div>
+
+
+				<div class="row">
+					<div class="col-md-1">
+						<p></p>
+					</div>
+
+					<div class="col-md-8">
+						<p id="guesses-p"><span id="guesses"></span></p>
+					</div>				
+				</div>
+
+
+				<div class="row">
+					<button id="next">Next</button> 
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<style type="text/css">
+		#gem-title {
+			text-align: center;
+			margin: 0 30px 45px 30px;
+			letter-spacing: 4px;
+			color: #633eef;
+			font-family: 'Permanent Marker', cursive;
+			font-size: 115px;
+		}
+
+		body {
+			font-family: 'Permanent Marker', sans-serif;
+			letter-spacing: 1px;
+		}
+
+		#text-content {
+			text-align: center;
+			color: #fff;
+		}
+
+		#stats {
+			font-size: 25px;
+		}
+	
+		#start-reset {
+			font-family: 'Permanent Marker', cursive;
+			color: #f7f09e;
+			font-size: 40px;
+			padding: 10px;
+			background-color: #fd2240;
+			border: 1px solid #c10062;
+			border-radius: 4px;
+			margin-bottom: 30px;
+		}
+
+		#next {
+			font-family: 'Permanent Marker', cursive;
+			color: #f7f09e;
+			font-size: 20px;
+			padding: 10px;
+			background-color: #fd2240;
+			border: 1px solid #c10062;
+			border-radius: 4px;
+			margin: 15px;
+		}
+
+		#blue {
+			background-image: url(assets/images/space.jpg);
+			background-position: center;
+			background-attachment: absolute;
+			background-repeat: none;
+/*		    background: linear-gradient(#c572e3, #b5e0fd);
+*/			padding-left: 20%;
+			padding-right: 20%;
+			padding-bottom: 25%;
+		}
+
+		#guesses {
+			text-align: center;
+			letter-spacing: 3px;
+		}
+
+		.crystalgem {
+			float: left;
+			filter: contrast(0%) brightness(0%);
+			margin-left: 30%;
+			height: 400px;
+		}
+
+		/* With javascript, apply this class when loss or win */
+		.crystalseen {
+			float: left;
+			filter: contrast(100%) brightness(100%);
+			margin-left: 30%;
+			height: 400px;
+		}
+
+		#guesses-p {
+			height: 70px;
+			text-align: center;
+			background-color: rgba(104, 185, 232, 0.3);
+			letter-spacing: 5px;
+			border: 2px solid #69b3de;
+			border-radius: 4px;
+			padding: 20px;
+			width: 335px;
+		}
+
+		}
+	</style>
+
+</body>
+</html>
