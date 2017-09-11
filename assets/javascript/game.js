@@ -4,9 +4,10 @@ var possGuesses = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "
 var hangmanGuess = [];
 var gems = ["rosequartz", "pearl", "amethyst", "ruby", "sapphire", "peridot", "bismuth", "aquamarine", 
 	"jasper", "lapis", "garnet", "opal", "sugilite", "alexandrite", "sardonyx", "smokyquartz", 
-	"malachite", "fluorite", "rhodonite", "carnelian"]
+	"malachite", "fluorite", "rhodonite", "carnelian", "bluediamond", "yellowdiamond", "padparadscha",
+	"topaz", "rainbowquartz", "zircon", "rutile", "squaridot", "bluepearl", "yellowpearl"]
 var currentGem 
-var guessesLeft = 5;
+var guessesLeft = 7;
 var guessTried = []; 
 
 document.onkeyup = function(event) {
@@ -19,7 +20,6 @@ document.onkeyup = function(event) {
 
     var yourChoice = event.key;
     yourChoice = yourChoice.toLowerCase()
-    console.log(yourChoice);
 
 	if (possGuesses.includes(yourChoice) === false) {
     	alert("That's not a letter, silly!");
@@ -34,9 +34,9 @@ document.onkeyup = function(event) {
     render();
 }
 
+// start/reset and next buttons to get gems and begin the game, reset wins.
 window.onload = function() {
  	document.getElementById("start-reset").onclick = function(event) {
-		console.log("I get here");
 		getNewGem();
 		wins = 0;
 		render();
@@ -46,9 +46,9 @@ window.onload = function() {
 
 	document.getElementById("next").onclick = function(event) {
 		getNewGem();
+		render();
 		document.getElementById("gempic").classList.remove("crystalseen");
 		document.getElementById("gempic").setAttribute("class", "crystalgem");
-		render();
 	}
 };
 
@@ -61,10 +61,10 @@ function render() {
 	}
 }
 
+// pushes the user's guess to a visible array on the page
 function guessArray(val1) {
 	if (guessTried.includes(val1) === true) {
 		alert("You've already guessed that one!");
-		guessesLeft++;
 	}
 
 	else if (possGuesses.includes(val1) === true) {
@@ -72,15 +72,12 @@ function guessArray(val1) {
 	}
 }
 
-// function to compare guess with what's in the array, need to think this more
+// function to compare guess with what's in the array
 function compare(val1) {	
 	for (i = 0; i < currentGem.length; i++) {
 
 		if (currentGem.charAt(i) === val1) {
-				console.log(currentGem.indexOf(val1));
-				console.log("guessed right!");
 				hangmanGuess.splice(i, 1, val1);  
-				console.log(hangmanGuess);
 		}
 
 		else {
@@ -93,7 +90,7 @@ function compare(val1) {
 		}
 }
 
-// win condition works, loss condition does not.
+// determins win or loss
 function win() {
 	if (hangmanGuess.includes("_") === false) {
 		console.log("You win!");
@@ -119,12 +116,10 @@ function getNewGem() {
 	hangmanGuess = [];
 	guessTried = [];
 	currentGem = gems[Math.floor(Math.random() * gems.length)];
-	console.log(currentGem.length);
 	document.getElementById("gempic").src = "assets/images/" + currentGem + ".png";
 	for (i = 0; i < currentGem.length; i++) {
 		hangmanGuess.push("_");
 	}
 
-	console.log(hangmanGuess.length);
 	console.log(currentGem);
 }

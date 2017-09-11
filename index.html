@@ -17,11 +17,11 @@
 
 		<div class="row">
 
-			<div class="col-md-6">
+			<div class="col-md-6 col-sm-12 col-xs-12">
 				<img class="crystalseen img-responsive" id="gempic" src="assets/images/steven.png" > 
 			</div>
 
-			<div id="text-content" class="col-md-6">
+			<div id="text-content" class="col-md-6 col-sm-12 col-xs-12">
 
 				<div class="row">
 					<button id="start-reset"><span id="game-init">Start</span></button>
@@ -30,7 +30,7 @@
 				<div class="row" id="stats">
 					<p>Wins: <span id="wins">0</span></p>
 				
-					<p>Guesses left: <span id="guessLeft">5</span></p>
+					<p>Guesses left: <span id="guessLeft">7</span></p>
 
 					<p>Your guesses so far: <span id="humanGuess"></span></p>
 				</div>
@@ -61,7 +61,7 @@
 			text-align: center;
 			margin: 15px 30px 45px 30px;
 			letter-spacing: 4px;
-			color: #633eef;
+			color: #ff3a67;
 			font-family: 'Permanent Marker', cursive;
 			font-size: 115px;
 		}
@@ -80,6 +80,7 @@
 			font-size: 16px;
 			letter-spacing: 3px;
 			font-family: 'Lato', sans-serif;
+			width: 101%;
 		}
 
 		#footer::before {
@@ -149,7 +150,6 @@
 		.crystalgem {
 			float: left;
 			filter: contrast(0%) brightness(0%);
-			/*margin-left: 30%;*/
 			margin: 0 auto;
 			height: 400px;
 		}
@@ -158,7 +158,6 @@
 		.crystalseen {
 			float: left;
 			filter: contrast(100%) brightness(100%);
-			/*margin-left: 30%;*/
 			margin: 0 auto;
 			height: 400px;
 		}
@@ -174,6 +173,11 @@
 			width: 100%;
 		}
 
+		@media screen and (max-width: 670px) {
+			#gem-title {
+				font-size: 70px;
+			}
+		}
 		}
 	</style>
 
