@@ -45,9 +45,9 @@ window.onload = function() {
 	}
 
 	document.getElementById("next").onclick = function(event) {
+		getNewGem();
 		document.getElementById("gempic").classList.remove("crystalseen");
 		document.getElementById("gempic").setAttribute("class", "crystalgem");
-		getNewGem();
 		render();
 	}
 };
@@ -88,7 +88,7 @@ function compare(val1) {
 		}
 	}
 
-	if (currentGem.includes(val1, 0) === false) {
+	if (currentGem.includes(val1, 0) === false && possGuesses.includes(val1, 0) === true) {
 			guessesLeft--;
 		}
 }
