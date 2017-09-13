@@ -107,7 +107,8 @@ function win() {
 
 function getNewGem() {
 	if (gems.length < 1) {
-		alert("The end! Thanks for playing! Refresh the page to play again.")
+		alert("The end! Thanks for playing! Refresh the page to play again.");
+		document.getElementById("gempic").setAttribute("class", "crystalseen");
 	}
 
 	else {
