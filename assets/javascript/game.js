@@ -9,6 +9,7 @@ var gems = ["rosequartz", "pearl", "amethyst", "ruby", "sapphire", "peridot", "b
 var currentGem 
 var guessesLeft = 7;
 var guessTried = []; 
+var audio = document.createElement("AUDIO");
 
 document.onkeyup = function(event) {
 
@@ -26,11 +27,8 @@ document.onkeyup = function(event) {
     }
 
     guessArray(yourChoice);
-
     compare(yourChoice);
-
     win();
-
     render();
 }
 
@@ -96,6 +94,7 @@ function win() {
 		console.log("You win!");
 		wins++;
 		document.getElementById("gempic").setAttribute("class", "crystalseen");
+		playAudio();
 	}
 
 	else if (guessesLeft === 0) {		
@@ -104,22 +103,34 @@ function win() {
 		hangmanGuess.push(currentGem);
 		document.getElementById("gempic").setAttribute("class", "crystalseen");
 	}
-
-	else {
-		console.log(currentGem);
-		console.log(hangmanGuess);
-	}
 }
 
 function getNewGem() {
-	guessesLeft = 5
-	hangmanGuess = [];
-	guessTried = [];
-	currentGem = gems[Math.floor(Math.random() * gems.length)];
-	document.getElementById("gempic").src = "assets/images/" + currentGem + ".png";
-	for (i = 0; i < currentGem.length; i++) {
-		hangmanGuess.push("_");
+	if (gems.length < 1) {
+		alert("The end! Thanks for playing! Refresh the page to play again.")
 	}
 
+	else {
+		guessesLeft = 7
+		hangmanGuess = [];
+		guessTried = [];
+		currentGem = gems[Math.floor(Math.random() * gems.length)];
+		gems.splice(gems.indexOf(currentGem), 1);
+		document.getElementById("gempic").src = "assets/images/" + currentGem + ".png";
+		for (i = 0; i < currentGem.length; i++) {
+			hangmanGuess.push("_");
+		}
+	}
 	console.log(currentGem);
+}
+
+function playAudio() {
+	if (audio.canPlayType("audio/mpeg")) {
+		audio.setAttribute("src", "assets/audio/" + currentGem + ".mp3");
+		audio.play();
+	}
+
+	else {
+		alert("Your browser won't let you hear the awesome music playing now!");
+	}
 }
