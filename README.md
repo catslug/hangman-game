@@ -9,6 +9,7 @@ Overview:
   Hints are displayed to the left in the form of a dark silhouette of each character, which is revealed as you get the answer. 
   When you guess correctly, a song associated with that character plays!
 
+View the live site at: https://catslug.github.io/hangman-game/
 
 Technologies used: 
   * HTML
